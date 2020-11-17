@@ -1,7 +1,6 @@
 package com.example.stippejan.aufgabe5;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -15,9 +14,7 @@ public class UsersRepo {
     UsersApi usersApi;
 
     public UsersRepo() {
-        Gson gson = new GsonBuilder()
-                .setLenient()
-                .create();
+        Gson gson = new Gson();
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
