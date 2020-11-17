@@ -52,4 +52,8 @@ public class Location {
         this.country = country;
     }
 
+    public String getPostCodeAndCity() {
+        return String.format("%s %s", getPostCode(), getCity());
+    }
+
 }

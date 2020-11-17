@@ -2,27 +2,18 @@ package com.example.stippejan.aufgabe5;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.jetbrains.annotations.NotNull;
+
 public class Name {
 
-    @SerializedName("title")
-    private String title;
     @SerializedName("first")
     private String firstName;
     @SerializedName("last")
     private String lastName;
 
-    public Name(String title, String firstName, String lastName) {
-        this.title = title;
+    public Name(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getFirstName() {
@@ -39,6 +30,12 @@ public class Name {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @NotNull
+    @Override
+    public String toString() {
+        return String.format("%s %s", getFirstName(), getLastName());
     }
 
 }

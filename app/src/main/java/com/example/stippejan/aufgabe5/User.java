@@ -25,8 +25,8 @@ public class User {
         this.gender = gender;
     }
 
-    public String getName() {
-        return String.format("%s %s %s", name.getTitle(), name.getFirstName(), name.getLastName());
+    public Name getName() {
+        return name;
     }
 
     public void setName(Name name) {

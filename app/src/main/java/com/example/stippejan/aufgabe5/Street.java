@@ -2,6 +2,8 @@ package com.example.stippejan.aufgabe5;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.jetbrains.annotations.NotNull;
+
 public class Street {
 
     @SerializedName("name")
@@ -28,6 +30,12 @@ public class Street {
 
     public void setNumber(int number) {
         this.number = number;
+    }
+
+    @NotNull
+    @Override
+    public String toString() {
+        return getName() + " " + getNumber();
     }
 
 }
