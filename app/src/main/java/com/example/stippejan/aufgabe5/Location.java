@@ -13,6 +13,7 @@ public class Location {
     @SerializedName("country")
     private String country;
 
+    // Constructor
     public Location(Street street, int postCode, String city, String country) {
         this.street = street;
         this.postCode = postCode;
@@ -20,6 +21,7 @@ public class Location {
         this.country = country;
     }
 
+    // Get- and Set-methods
     public Street getStreet() {
         return street;
     }
@@ -52,6 +54,7 @@ public class Location {
         this.country = country;
     }
 
+    // Get postcode and city as one String
     public String getPostCodeAndCity() {
         return String.format("%s %s", getPostCode(), getCity());
     }

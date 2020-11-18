@@ -10,13 +10,18 @@ public class User {
     private Name name;
     @SerializedName("location")
     private Location location;
+    @SerializedName("picture")
+    private Picture picture;
 
-    public User(String gender, Name name, Location location) {
+    // Constructor
+    public User(String gender, Name name, Location location, Picture picture) {
         this.gender = gender;
         this.name = name;
         this.location = location;
+        this.picture = picture;
     }
 
+    // Get- and Set-methods
     public String getGender() {
         return gender;
     }
@@ -39,6 +44,14 @@ public class User {
 
     public void setLocation(Location location) {
         this.location = location;
+    }
+
+    public Picture getPicture() {
+        return picture;
+    }
+
+    public void setPicture(Picture picture) {
+        this.picture = picture;
     }
 
 }

@@ -11,11 +11,13 @@ public class Street {
     @SerializedName("number")
     private int number;
 
+    // Constructor
     public Street(String name, int number) {
         this.name = name;
         this.number = number;
     }
 
+    // Get- and Set-methods
     public String getName() {
         return name;
     }
@@ -32,6 +34,7 @@ public class Street {
         this.number = number;
     }
 
+    // Overriding toString-method to get Street-objects as a String
     @NotNull
     @Override
     public String toString() {

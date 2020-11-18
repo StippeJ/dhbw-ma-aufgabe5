@@ -11,11 +11,13 @@ public class Name {
     @SerializedName("last")
     private String lastName;
 
+    // Constructor
     public Name(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
+    // Get- and Set-methods
     public String getFirstName() {
         return firstName;
     }
@@ -32,6 +34,7 @@ public class Name {
         this.lastName = lastName;
     }
 
+    // Overriding toString-method to get Name-objects as a String
     @NotNull
     @Override
     public String toString() {
