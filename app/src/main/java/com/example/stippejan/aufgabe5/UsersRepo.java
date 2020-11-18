@@ -13,6 +13,7 @@ public class UsersRepo {
 
     UsersApi usersApi;
 
+    // Constructor
     public UsersRepo() {
         Gson gson = new Gson();
 
@@ -32,18 +33,16 @@ public class UsersRepo {
         usersApi = retrofit.create(UsersApi.class);
     }
 
+    // Get a random user in json-format
     public void getRandomUser(Callback<ApiResponse> callback) {
         Call<ApiResponse> call = usersApi.getRandomUser("json");
         call.enqueue(callback);
     }
 
-    public void getFemaleUser(Callback<ApiResponse> callback) {
-        Call<ApiResponse> call = usersApi.getUserOfCertainGender("json", "female");
-        call.enqueue(callback);
-    }
-
-    public void getMaleUser(Callback<ApiResponse> callback) {
-        Call<ApiResponse> call = usersApi.getUserOfCertainGender("json", "male");
+    // Get a random user in json-format
+    // Specify the gender of the user (options: male, female)
+    public void getUserOfCertainGender(Callback<ApiResponse> callback, String gender) {
+        Call<ApiResponse> call = usersApi.getUserOfCertainGender("json", gender);
         call.enqueue(callback);
     }
 

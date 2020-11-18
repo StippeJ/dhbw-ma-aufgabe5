@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Aufgabe 5</string>
+    <string name="heading">Art des Nutzers auswählen</string>
+    <string name="random_user">Zufällig</string>
+    <string name="female_user">Weiblich</string>
+    <string name="male_user">Männlich</string>
+    <string name="load_user_tooltip">Neuen Nutzer laden</string>
+    <string name="error_parsing">Fehler beim Verarbeiten der Daten. (Fehlerhafte Daten von der API erhalten)</string>
+    <string name="error_api_connection">Fehler beim Verbinden mit der API. (Möglicherweise aktuell keine Internetverbindung?)</string>
+</resources>

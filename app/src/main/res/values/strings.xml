@@ -4,8 +4,7 @@
     <string name="random_user">random</string>
     <string name="female_user">female</string>
     <string name="male_user">male</string>
-    <string name="load_user">Load</string>
-    <string name="info_load_user">Press the button to load a user.</string>
-    <string name="error_parsing">Failure while parsing data from the API.</string>
-    <string name="error_api_connection">Error while connecting to the API.</string>
+    <string name="load_user_tooltip">Load a new user</string>
+    <string name="error_parsing">Error while processing data. (Received invalid data from API)</string>
+    <string name="error_api_connection">Error while connecting to the API. (Maybe no internet-connection?)</string>
 </resources>
