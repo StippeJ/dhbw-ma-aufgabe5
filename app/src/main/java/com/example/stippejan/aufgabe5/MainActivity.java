@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.Group;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -59,21 +58,83 @@ public class MainActivity extends AppCompatActivity {
         loadUser.setOnClickListener((v) -> {
             switch (userTypeGroup.getCheckedRadioButtonId()) {
                 case R.id.randomUser:
-                    getRandomResult();
+                    getRandomUser();
                     break;
                 case R.id.femaleUser:
+                    getFemaleUser();
                     break;
                 case R.id.maleUser:
+                    getMaleUser();
                     break;
             }
         });
     }
 
-    public void getRandomResult() {
+    public void getRandomUser() {
         userDataGroup.setVisibility(View.INVISIBLE);
         errorText.setVisibility(View.INVISIBLE);
 
-        usersRepo.getRandomResult(new Callback<ApiResponse>() {
+        usersRepo.getRandomUser(new Callback<ApiResponse>() {
+            @Override
+            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+                if (response.isSuccessful()) {
+                    ApiResponse apiResponse = response.body();
+                    User user = apiResponse.getUserList().get(0);
+
+                    userName.setText(user.getName().toString());
+                    userStreetHouseNumber.setText(user.getLocation().getStreet().toString());
+                    userPostCodeCity.setText(user.getLocation().getPostCodeAndCity());
+                    userCountry.setText(user.getLocation().getCountry());
+                    userDataGroup.setVisibility(View.VISIBLE);
+                } else {
+                    errorText.setText(getString(R.string.error_api_connection));
+                    errorText.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse> call, Throwable t) {
+                errorText.setText(getString(R.string.error_parsing));
+                errorText.setVisibility(View.VISIBLE);
+            }
+        });
+    }
+
+    public void getFemaleUser() {
+        userDataGroup.setVisibility(View.INVISIBLE);
+        errorText.setVisibility(View.INVISIBLE);
+
+        usersRepo.getFemaleUser(new Callback<ApiResponse>() {
+            @Override
+            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+                if (response.isSuccessful()) {
+                    ApiResponse apiResponse = response.body();
+                    User user = apiResponse.getUserList().get(0);
+
+                    userName.setText(user.getName().toString());
+                    userStreetHouseNumber.setText(user.getLocation().getStreet().toString());
+                    userPostCodeCity.setText(user.getLocation().getPostCodeAndCity());
+                    userCountry.setText(user.getLocation().getCountry());
+                    userDataGroup.setVisibility(View.VISIBLE);
+                } else {
+                    errorText.setText(getString(R.string.error_api_connection));
+                    errorText.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse> call, Throwable t) {
+                errorText.setText(getString(R.string.error_parsing));
+                errorText.setVisibility(View.VISIBLE);
+            }
+        });
+    }
+
+    public void getMaleUser() {
+        userDataGroup.setVisibility(View.INVISIBLE);
+        errorText.setVisibility(View.INVISIBLE);
+
+        usersRepo.getMaleUser(new Callback<ApiResponse>() {
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
                 if (response.isSuccessful()) {

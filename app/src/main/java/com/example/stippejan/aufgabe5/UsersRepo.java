@@ -32,8 +32,18 @@ public class UsersRepo {
         usersApi = retrofit.create(UsersApi.class);
     }
 
-    public void getRandomResult(Callback<ApiResponse> callback) {
-        Call<ApiResponse> call = usersApi.getRandomResult();
+    public void getRandomUser(Callback<ApiResponse> callback) {
+        Call<ApiResponse> call = usersApi.getRandomUser("json");
+        call.enqueue(callback);
+    }
+
+    public void getFemaleUser(Callback<ApiResponse> callback) {
+        Call<ApiResponse> call = usersApi.getUserOfCertainGender("json", "female");
+        call.enqueue(callback);
+    }
+
+    public void getMaleUser(Callback<ApiResponse> callback) {
+        Call<ApiResponse> call = usersApi.getUserOfCertainGender("json", "male");
         call.enqueue(callback);
     }
 
