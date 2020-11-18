@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Assignment 5</string>
-    <string name="heading">Select user-type</string>
-    <string name="random_user">random</string>
-    <string name="female_user">female</string>
-    <string name="male_user">male</string>
+    <string name="heading">Select type of user</string>
+    <string name="random_user">Random</string>
+    <string name="female_user">Female</string>
+    <string name="male_user">Male</string>
     <string name="load_user_tooltip">Load a new user</string>
     <string name="error_parsing">Error while processing data. (Received invalid data from API)</string>
     <string name="error_api_connection">Error while connecting to the API. (Maybe no internet-connection?)</string>
