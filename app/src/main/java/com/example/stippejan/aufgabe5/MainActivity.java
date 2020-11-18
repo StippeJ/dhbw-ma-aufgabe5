@@ -6,6 +6,7 @@ import androidx.constraintlayout.widget.Group;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     TextView userPostCodeCity;
     TextView userCountry;
     TextView errorText;
+    ProgressBar progressSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         userPostCodeCity = findViewById(R.id.userPostCodeCity);
         userCountry = findViewById(R.id.userCountry);
         errorText = findViewById(R.id.errorText);
+        progressSpinner = findViewById(R.id.progressSpinner);
     }
 
     @Override
@@ -71,12 +74,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getRandomUser() {
+        progressSpinner.setVisibility(View.VISIBLE);
         userDataGroup.setVisibility(View.INVISIBLE);
         errorText.setVisibility(View.INVISIBLE);
 
         usersRepo.getRandomUser(new Callback<ApiResponse>() {
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+                progressSpinner.setVisibility(View.INVISIBLE);
                 if (response.isSuccessful()) {
                     ApiResponse apiResponse = response.body();
                     User user = apiResponse.getUserList().get(0);
@@ -94,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ApiResponse> call, Throwable t) {
+                progressSpinner.setVisibility(View.INVISIBLE);
                 errorText.setText(getString(R.string.error_parsing));
                 errorText.setVisibility(View.VISIBLE);
             }
@@ -101,12 +107,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getFemaleUser() {
+        progressSpinner.setVisibility(View.VISIBLE);
         userDataGroup.setVisibility(View.INVISIBLE);
         errorText.setVisibility(View.INVISIBLE);
 
         usersRepo.getFemaleUser(new Callback<ApiResponse>() {
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+                progressSpinner.setVisibility(View.INVISIBLE);
                 if (response.isSuccessful()) {
                     ApiResponse apiResponse = response.body();
                     User user = apiResponse.getUserList().get(0);
@@ -124,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ApiResponse> call, Throwable t) {
+                progressSpinner.setVisibility(View.INVISIBLE);
                 errorText.setText(getString(R.string.error_parsing));
                 errorText.setVisibility(View.VISIBLE);
             }
@@ -131,12 +140,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getMaleUser() {
+        progressSpinner.setVisibility(View.VISIBLE);
         userDataGroup.setVisibility(View.INVISIBLE);
         errorText.setVisibility(View.INVISIBLE);
 
         usersRepo.getMaleUser(new Callback<ApiResponse>() {
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+                progressSpinner.setVisibility(View.INVISIBLE);
                 if (response.isSuccessful()) {
                     ApiResponse apiResponse = response.body();
                     User user = apiResponse.getUserList().get(0);
@@ -154,6 +165,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ApiResponse> call, Throwable t) {
+                progressSpinner.setVisibility(View.INVISIBLE);
                 errorText.setText(getString(R.string.error_parsing));
                 errorText.setVisibility(View.VISIBLE);
             }
